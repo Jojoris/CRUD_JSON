@@ -33,6 +33,7 @@ namespace CRUD_JSON
 
                     new Leerling
                     {
+                        
                         Naam = "Willems",
                         Voornaam = "Wim",
                         Geboortedatum = new DateTime(2001, 2, 23),
@@ -48,8 +49,6 @@ namespace CRUD_JSON
 
             //Maak een JSON object van het C# object nieuwelijst -> SerializeObject()
             string json = JsonConvert.SerializeObject(nieuweLijst, Formatting.Indented);
-            Console.WriteLine(json);
-            Console.ReadLine();
 
             //Maak een C# object bestaandelijst van een JSON object -> DeserializeObject()
             Leerlingen bestaandelijst = JsonConvert.DeserializeObject<Leerlingen>(json);
@@ -57,8 +56,6 @@ namespace CRUD_JSON
 
             //Maak terug een JSON object
             json = JsonConvert.SerializeObject(bestaandelijst, Formatting.Indented);
-            Console.WriteLine(json);
-            Console.ReadLine();
 
 
             foreach (Leerling ll in bestaandelijst.LeerlingLijst)
@@ -76,6 +73,8 @@ namespace CRUD_JSON
             bewerkingen.PasPuntAan(bestaandelijst, "Willems", "Wim", "NaWe", 9.5);
             //Delete
             bewerkingen.VerwijderPunten(bestaandelijst, "Willems", "Wim", "NaWe");
+            Console.WriteLine(json);
+            Console.Read();
 
         }
 
