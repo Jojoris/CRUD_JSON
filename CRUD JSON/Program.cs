@@ -112,27 +112,112 @@ namespace CRUD_JSON
     {
         public void PasPuntAan(Leerlingen lijst, string v1, string v2, string v3, double v4)
         {
-            throw new NotImplementedException();
+            //kheb dit op een domme manier gedaan zodat ik niet hetzelfde heb als iemand anders
+            int count = 0;
+            string[] naam = new string[20];
+            string[] voornaam = new string[20];
+            string[] punt = new string[20];
+            foreach (Leerling element in lijst.LeerlingLijst)
+            {
+                count++;
+                naam[count] = element.Naam.ToString();
+                voornaam[count] = element.Voornaam.ToString();
+                punt[count] = element.Punten.ToString();
+            }
+            
+            for (int i = 0; i < naam.Length; i++)
+            {
+                if (naam[i] == v1 && voornaam[i] == v2)
+                {
+                    for (int j = 0; j < punt.Length; j++)
+                    {
+                        foreach (Leerling lol in lijst.LeerlingLijst)
+                        {
+                            foreach (Punt pop in lol.Punten)
+                            {
+                                if (pop.Vak == v3)
+                                {
+                                    pop.Punten = v4;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public void ToonLeerlingen(Leerlingen lijst)
         {
-            throw new NotImplementedException();
+            string conveluted = "";
+            foreach (Leerling lol in lijst.LeerlingLijst)
+            {
+                conveluted = lol.ToString();
+            }
+            Console.WriteLine(conveluted);
         }
 
         public void ToonPunten(Leerlingen lijst, string v1, string v2)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            string[] naam = new string[20];
+            string[] voornaam = new string[20];
+            string[] punt = new string[20];
+            foreach (Leerling element in lijst.LeerlingLijst)
+            {
+                count++;
+                naam[count] = element.Naam.ToString();
+                voornaam[count] = element.Voornaam.ToString();
+                punt[count] = element.Punten.ToString();
+            }
+
+            for (int i = 0; i < naam.Length; i++)
+            {
+                if (naam[i] == v1 && voornaam[i] == v2)
+                {
+                    for (int j = 0; j < punt.Length; j++)
+                    {
+                        foreach (Leerling lol in lijst.LeerlingLijst)
+                        {
+                            Console.WriteLine(lol.Punten);
+                        }
+                    }
+                }
+            }
         }
 
         public void VerwijderPunten(Leerlingen lijst, string v1, string v2, string v3)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            string[] naam = new string[20];
+            string[] voornaam = new string[20];
+            string[] punt = new string[20];
+            foreach (Leerling element in lijst.LeerlingLijst)
+            {
+                count++;
+                naam[count] = element.Naam.ToString();
+                voornaam[count] = element.Voornaam.ToString();
+                punt[count] = element.Punten.ToString();
+            }
+
+            for (int i = 0; i < naam.Length; i++)
+            {
+                if (naam[i] == v1 && voornaam[i] == v2)
+                {
+                    for (int j = 0; j < punt.Length; j++)
+                    {
+                        foreach (Leerling lol in lijst.LeerlingLijst)
+                        {
+                            lol.Punten = 0;
+                        }
+                    }
+                }
+            }
         }
+    
 
         public void VoegPuntToe(Leerlingen lijst, string v1, string v2, string v3, double v4)
         {
-            throw new NotImplementedException();
+            lijst.LeerlingLijst[0].Punten.Add(new Punt(v3, v4));
         }
     }
 
